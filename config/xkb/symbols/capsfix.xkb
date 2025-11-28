@@ -1,0 +1,8 @@
+default partial xkb_symbols "capsfix" {
+    include "gb(basic)"
+
+    key <CAPS> {
+        type = "TOGGLE",
+        symbols[Group1] = [ Caps_Lock ]
+    };
+};

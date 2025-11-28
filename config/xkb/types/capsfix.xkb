@@ -1,0 +1,7 @@
+default partial xkb_types "capsfix" {
+    type "TOGGLE" {
+        modifiers= None;
+        map[None] = Level1;
+        level_name[Level1] = "Toggle";
+    };
+};
