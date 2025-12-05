@@ -12,6 +12,8 @@
     # Spotify
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/home/spotify.nix
+
+    ./modules/home/theme.nix
   ];
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -65,7 +67,7 @@
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake ~/nixos-config#robin";
     npurge = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system +2";
-    nupdate = "nix flake update --flake  ~/nixos-config"
+    nupdate = "nix flake update --flake ~/nixos-config";
   };
   programs.bash.bashrcExtra = ''
     fastfetch
