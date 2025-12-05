@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.konsole.enable = true;
-
   home.file.".local/share/konsole/BurgundyVelvet.colorscheme".text = ''
     [General]
     Description=Burgundy Velvet
