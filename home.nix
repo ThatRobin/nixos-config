@@ -24,6 +24,23 @@
     };
   };
 
+  systemd.user.services.input-remapper-autoload = {
+    Unit = {
+      Description = "Autoload Input Remapper profiles on login";
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.input-remapper}/bin/input-remapper-control --command autoload";
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -48,6 +65,7 @@
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake ~/nixos-config#robin";
     npurge = "sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system +2";
+    nupdate = "nix flake update --flake  ~/nixos-config"
   };
   programs.bash.bashrcExtra = ''
     fastfetch

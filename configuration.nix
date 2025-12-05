@@ -11,7 +11,7 @@
       ./modules/nix/steam.nix
       ./modules/nix/obs.nix
       ./modules/nix/unity.nix
-      ./modules/nix/r2modman.nix
+      ./modules/nix/gale.nix
       ./modules/nix/prismlauncher.nix
       ./modules/nix/audacity.nix
     ];
@@ -55,17 +55,9 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  services.keyd.enable = true;
-
-  services.xserver.xkb.extraLayouts.capsfix = {
-    description = "Fix Caps Lock toggling only on key press";
-    languages = [ "eng" ];
-    symbolsFile = ./config/xkb/symbols/capsfix.xkb;
-    typesFile = ./config/xkb/types/capsfix.xkb;
+  services.input-remapper = {
+    enable = true;
   };
-  services.xserver.xkb.layout = "capsfix";
-  services.xserver.xkb.variant = "capsfix";
-
 
   # Enable drive auto-mount
   services.udisks2.enable = true;
@@ -160,6 +152,8 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.xorg.xkbcomp
     git
+    input-remapper
+    pkgs.python314
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
