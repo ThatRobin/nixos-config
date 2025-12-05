@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  # Ensure Konsole is installed (you can remove this if you install it elsewhere)
   programs.konsole.enable = true;
 
-  # Drop in the Konsole theme file
   home.file.".local/share/konsole/BurgundyVelvet.colorscheme".text = ''
     [General]
     Description=Burgundy Velvet
@@ -61,7 +59,6 @@
     Color=255,255,255
   '';
 
-  # Profile that uses the theme + a good font
   home.file.".local/share/konsole/Burgundy.profile".text = ''
     [General]
     Name=Burgundy
@@ -76,6 +73,5 @@
     ScrollBarPosition=Right
   '';
 
-  # Set it as the default profile
   programs.konsole.defaultProfile = "Burgundy.profile";
 }
