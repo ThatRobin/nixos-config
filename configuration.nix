@@ -14,6 +14,7 @@
       ./modules/nix/gale.nix
       ./modules/nix/prismlauncher.nix
       ./modules/nix/audacity.nix
+      ./modules/nix/davinci-resolve.nix
     ];
 
   # Bootloader.

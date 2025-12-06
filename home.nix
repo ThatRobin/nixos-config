@@ -13,7 +13,6 @@
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/home/spotify.nix
 
-    ./modules/home/theme.nix
   ];
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
