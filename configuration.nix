@@ -99,6 +99,8 @@
     #media-session.enable = true;
   };
 
+  programs.xwayland.enable = true;
+
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.graphics = {
     enable = true;        # Enable OpenGL
@@ -127,6 +129,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users = {
       "robin" = import ./home.nix;
     };
@@ -155,6 +158,24 @@
     git
     input-remapper
     pkgs.python314
+    pkgs.openjdk21
+    pkgs.mesa
+    libglvnd
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXi
+    xorg.libXcursor
+    xorg.libXext
+    xorg.libXtst
+    gtk3
+    glfw
+    libGL
+    xorg.libXxf86vm
+    openal
+    pkgs.gradle
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.cmake
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

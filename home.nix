@@ -13,6 +13,12 @@
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/home/spotify.nix
 
+    # Intellij IDEA
+    ./modules/home/intellij.nix
+
+    # BlockBench
+    ./modules/home/blockbench.nix
+
   ];
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
